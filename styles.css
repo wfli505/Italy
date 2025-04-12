@@ -50,6 +50,10 @@ h1, h2, h3, h4 {
     padding: 1rem;
     background-color: var(--secondary-bg);
     overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav-btn {
@@ -60,6 +64,7 @@ h1, h2, h3, h4 {
     border-radius: 4px;
     color: var(--text-secondary);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -83,10 +88,22 @@ h1, h2, h3, h4 {
     background-color: var(--primary-bg);
     border-radius: 8px;
     padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .day-content.active {
     display: block;
+}
+
+.day-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px 8px 0 0;
 }
 
 .timeline {
@@ -106,8 +123,8 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--timeline-line);
-    font-weight: 600;              /* 加粗时间段标题 */
-    font-size: 1.2rem;             /* 增大时间段标题字号 */
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .timeline-item {
@@ -122,7 +139,7 @@ h1, h2, h3, h4 {
 .time {
     min-width: 100px;
     color: var(--accent-color);
-    font-weight: 600;              /* 加粗时间文字 */
+    font-weight: 600;
 }
 
 .content {
@@ -133,23 +150,23 @@ h1, h2, h3, h4 {
 .content h4 {
     color: var(--text-primary);
     margin: 0 0 0.8rem 0;
-    font-weight: 600;              /* 加粗标题 */
-    font-size: 1.1rem;             /* 略微增大标题字号 */
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .content p {
-    color: var(--text-secondary);  /* 设置段落文字颜色 */
-    margin-bottom: 0.5rem;         /* 增加段落间距 */
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
 }
 
 .important {
     color: var(--warning-color);
-    font-weight: 600;              /* 加粗重要提示的文字 */
-    position: relative;            /* 为添加左边框做准备 */
-    padding-left: 10px;           /* 为左边框留出空间 */
-    border-left: 3px solid var(--warning-color); /* 添加醒目的左边框 */
-    margin: 8px 0;                /* 增加上下间距 */
-    display: block;               /* 确保边框显示完整 */
+    font-weight: 600;
+    position: relative;
+    padding-left: 10px;
+    border-left: 3px solid var(--warning-color);
+    margin: 8px 0;
+    display: block;
 }
 
 .map-container {
@@ -171,14 +188,6 @@ footer {
     background-color: var(--secondary-bg);
     color: var(--text-secondary);
     margin-top: 2rem;
-}
-
-.day-title {
-    color: var(--text-primary);
-    font-size: 1.5rem;             /* 增大日期标题字号 */
-    font-weight: 600;              /* 加粗日期标题 */
-    margin-bottom: 1.5rem;         /* 增加标题下方间距 */
-    text-align: center;            /* 居中对齐 */
 }
 
 .timeline-section.accommodation {
@@ -224,25 +233,129 @@ footer {
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    .container {
+@media screen and (max-width: 768px) {
+    /* 头部调整 */
+    header {
         padding: 1rem;
     }
 
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* 导航按钮调整 */
+    .day-nav {
+        padding: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .nav-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        min-width: 70px;
+    }
+
+    /* 内容区域调整 */
+    .container {
+        padding: 0.5rem;
+    }
+
+    .timeline {
+        padding: 0.5rem;
+    }
+
+    /* 时间线布局调整 */
     .timeline-item {
         flex-direction: column;
     }
 
     .time {
         margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
     }
 
     .content {
-        padding-left: 0;
+        padding-left: 0.5rem;
+    }
+
+    /* 地图高度调整 */
+    #map {
+        height: 300px;
+    }
+
+    /* 文字大小调整 */
+    .day-title {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .timeline-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .content h4 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 针对超小屏幕的优化 */
+@media screen and (max-width: 320px) {
+    header h1 {
+        font-size: 1.2rem;
     }
 
     .nav-btn {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+        min-width: 60px;
+    }
+
+    .day-title {
+        font-size: 1rem;
+    }
+
+    .timeline-section h3 {
+        font-size: 1rem;
+    }
+
+    .content h4 {
         font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .day-content, .day-nav {
+        background-color: #1e1e1e;
+    }
+
+    .timeline-section h3 {
+        border-bottom-color: #333;
+    }
+
+    .content {
+        border-left-color: #333;
+    }
+
+    .time {
+        color: #999;
+    }
+
+    .important {
+        color: #ff6b6b;
     }
 } 
