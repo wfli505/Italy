@@ -1,0 +1,248 @@
+:root {
+    /* 莫兰迪色系 */
+    --primary-bg: #F5F2F0;          /* 米白色背景 */
+    --secondary-bg: #E8E6E4;        /* 浅灰米色 */
+    --accent-color: #8C8480;        /* 加深的莫兰迪灰褐色 */
+    --text-primary: #2D2A28;        /* 加深的主要文字色 */
+    --text-secondary: #565250;      /* 加深的次要文字色 */
+    --border-color: #D1CDC9;        /* 浅灰边框色 */
+    --highlight-color: #B4A9A4;     /* 高亮色 */
+    --warning-color: #A66D6D;       /* 加深的莫兰迪红色 */
+    --timeline-line: #D5CEC9;       /* 时间线颜色 */
+    --button-hover: #E6DED8;        /* 按钮悬停色 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+}
+
+.date {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.day-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    overflow-x: auto;
+}
+
+.nav-btn {
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.nav-btn.active {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border-color: var(--accent-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.day-content {
+    display: none;
+    background-color: var(--primary-bg);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.day-content.active {
+    display: block;
+}
+
+.timeline {
+    position: relative;
+    padding: 1rem;
+}
+
+.timeline-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+.timeline-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--timeline-line);
+    font-weight: 600;              /* 加粗时间段标题 */
+    font-size: 1.2rem;             /* 增大时间段标题字号 */
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--primary-bg);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.time {
+    min-width: 100px;
+    color: var(--accent-color);
+    font-weight: 600;              /* 加粗时间文字 */
+}
+
+.content {
+    flex: 1;
+    padding-left: 1rem;
+}
+
+.content h4 {
+    color: var(--text-primary);
+    margin: 0 0 0.8rem 0;
+    font-weight: 600;              /* 加粗标题 */
+    font-size: 1.1rem;             /* 略微增大标题字号 */
+}
+
+.content p {
+    color: var(--text-secondary);  /* 设置段落文字颜色 */
+    margin-bottom: 0.5rem;         /* 增加段落间距 */
+}
+
+.important {
+    color: var(--warning-color);
+    font-weight: 600;              /* 加粗重要提示的文字 */
+    position: relative;            /* 为添加左边框做准备 */
+    padding-left: 10px;           /* 为左边框留出空间 */
+    border-left: 3px solid var(--warning-color); /* 添加醒目的左边框 */
+    margin: 8px 0;                /* 增加上下间距 */
+    display: block;               /* 确保边框显示完整 */
+}
+
+.map-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+#map {
+    height: 500px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--secondary-bg);
+    color: var(--text-secondary);
+    margin-top: 2rem;
+}
+
+.day-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;             /* 增大日期标题字号 */
+    font-weight: 600;              /* 加粗日期标题 */
+    margin-bottom: 1.5rem;         /* 增加标题下方间距 */
+    text-align: center;            /* 居中对齐 */
+}
+
+.timeline-section.accommodation {
+    background-color: var(--primary-bg);
+    border: 2px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.timeline-section.accommodation h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-section.accommodation .timeline-item {
+    background-color: var(--secondary-bg);
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.timeline-section.accommodation .timeline-item:hover {
+    transform: translateX(5px);
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-section.accommodation .content h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-section.accommodation .content p {
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.timeline-section.accommodation .important {
+    color: var(--warning-color);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .time {
+        margin-bottom: 0.5rem;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+} 
